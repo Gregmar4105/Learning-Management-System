@@ -16,7 +16,7 @@
                             <a href="#"
                                 @click.prevent="tab = 'assignments'"
                                 :class="tab === 'assignments' ? 'border-gray-900 text-gray-900' : 'border-transparent'"
-                                class="inline-block p-1 sm:p-3 md:p-4 text-xs sm:text-sm md:text-base border-b-2 rounded-t-lg
+                                class="inline-block p-1 sm:p-3 md:p-4 text-sm sm:text-sm md:text-base border-b-2 rounded-t-lg
                                     hover:border-gray-900 dark:hover:text-gray-900 whitespace-nowrap font-medium tab-button"
                                 role="tab">
                                 Assignments
@@ -26,7 +26,7 @@
                             <a href="#"
                                 @click.prevent="tab = 'activities'"
                                 :class="tab === 'activities' ? 'border-gray-900 text-gray-900' : 'border-transparent'"
-                                class="inline-block p-1 sm:p-3 md:p-4 text-xs sm:text-sm md:text-base border-b-2 rounded-t-lg
+                                class="inline-block p-1 sm:p-3 md:p-4 text-sm sm:text-sm md:text-base border-b-2 rounded-t-lg
                                     hover:border-gray-900 dark:hover:text-gray-900 whitespace-nowrap font-medium tab-button"
                                 role="tab">
                                 Activities
@@ -36,7 +36,7 @@
                             <a href="#"
                                 @click.prevent="tab = 'performance'"
                                 :class="tab === 'performance' ? 'border-gray-900 text-gray-900' : 'border-transparent'"
-                                class="inline-block p-1 sm:p-3 md:p-4 text-xs sm:text-sm md:text-base border-b-2 rounded-t-lg
+                                class="inline-block p-1 sm:p-3 md:p-4 text-sm sm:text-sm md:text-base border-b-2 rounded-t-lg
                                     hover:border-gray-900 dark:hover:text-gray-900 whitespace-nowrap font-medium tab-button"
                                 role="tab">
                                 Performance Tasks

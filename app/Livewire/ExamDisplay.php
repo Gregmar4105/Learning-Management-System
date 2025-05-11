@@ -41,13 +41,18 @@ class ExamDisplay extends Component
     }
 
     public function mount()
-    {
-        $this->courses = Course::withCount('exams')->get(); // This query counts from the quiz_masters table.
-        $this->loadExams();
-        if (!$this->examItems) { // Add this check
-            $this->initializeExamItems();
-        }
+{
+    $user = Auth::user();
+
+    // Load only courses the user is enrolled in, with quiz count
+    $this->courses = $user?->enrolledCourses()->withCount('exams')->get() ?? collect();
+
+    $this->loadExams();
+
+    if (!$this->examItems) {
+        $this->initializeExamItems();
     }
+}
 
     public function initializeExamItems()
     {
@@ -75,15 +80,25 @@ class ExamDisplay extends Component
     }
 
     public function loadExams()
-    {
-        $this->availableExams = ExamMaster::query()
-            ->when($this->course, function ($query) {
-                return $query->where('course_id', $this->course);
-            })
-            ->with(['user', 'course', 'items']) // Add 'items' back
-            ->latest()
-            ->get();
+{
+    $user = Auth::user();
+
+    if (!$user) {
+        $this->availableExams = collect();
+        return;
     }
+
+    $enrolledCourseIds = $user->enrolledCourses()->pluck('courses.id');
+
+    $this->availableExams = ExamMaster::query()
+        ->whereIn('course_id', $enrolledCourseIds)
+        ->when($this->course, function ($query) {
+            return $query->where('course_id', $this->course);
+        })
+        ->with(['user', 'course', 'items'])
+        ->latest()
+        ->get();
+}
 
     public function updatedCourse($value)
     {

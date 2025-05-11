@@ -20,12 +20,13 @@
                 <span class="text-sm align-center text-gray-500 dark:text-gray-400">Loading...</span>
             </div>
         </div>
-
+        @can('assignment-create')
         <div class="ml-2">
                 <flux:modal.trigger name="create-quiz-modal">
                     <flux:button icon:trailing="plus">Create Quiz</flux:button>
                 </flux:modal.trigger>
         </div>
+        @endcan
     </div>
 
     <flux:modal x-ref="create-quiz-modal" name="create-quiz-modal" class="md:w-150">
@@ -133,8 +134,8 @@
         @if ($availableQuizzes)
             @if (count($availableQuizzes) > 0)
                 @foreach ($availableQuizzes as $quiz)
-                    <div class="w-full sm:w-4/5 lg:w-2/3 mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow-md flex justify-between items-center">
-                        <div class="w-4/5">
+                    <div class="w-full sm:w-4/5 lg:w-200  mx-auto p-4 bg-white border border-black rounded-lg shadow-md mb-4 flex  justify-between items-end">
+                        <div>
                             <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{{ $quiz->title }}</h2>
                             <p class="text-gray-600 dark:text-gray-300 mb-2">
                                 {!! nl2br(e($quiz->body)) !!}

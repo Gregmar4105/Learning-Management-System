@@ -16,7 +16,7 @@
                         <a href="#"
                             @click.prevent="tab = 'Exam'"
                             :class="tab === 'Exam' ? 'border-gray-900 text-gray-900 border-b-2' : 'border-transparent border-b-2 hover:border-gray-900 dark:hover:text-gray-900'"
-                            class="inline-block p-1 sm:p-3 md:p-4 text-xs sm:text-sm md:text-base rounded-t-lg whitespace-nowrap font-medium tab-button"
+                            class="inline-block p-1 sm:p-3 md:p-4 text-sm sm:text-sm md:text-base rounded-t-lg whitespace-nowrap font-medium tab-button"
                             role="tab">
                             Exam
                         </a>
@@ -25,7 +25,7 @@
                         <a href="#"
                             @click.prevent="tab = 'Result of Examination'"
                             :class="tab === 'Result of Examination' ? 'border-gray-900 text-gray-900 border-b-2' : 'border-transparent border-b-2 hover:border-gray-900 dark:hover:text-gray-900'"
-                            class="inline-block p-1 sm:p-3 md:p-4 text-xs sm:text-sm md:text-base rounded-t-lg whitespace-nowrap font-medium tab-button"
+                            class="inline-block p-1 sm:p-3 md:p-4 text-sm sm:text-sm md:text-base rounded-t-lg whitespace-nowrap font-medium tab-button"
                             role="tab">
                             Result of Examination
                         </a>

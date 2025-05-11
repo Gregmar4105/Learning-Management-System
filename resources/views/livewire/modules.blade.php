@@ -1,32 +1,34 @@
 <div>
 
     {{-- Sticky Header Area for Controls --}}
-    <div class="sticky top-14 z-10">
-        <div class="flex">
-            {{-- Course Filter Dropdown --}}
-            <div class="mt-2 mb-2">
-                <div style="width:250px; display:inline-block;">
-                    <flux:select wire:model.live="course" id="courseFilter"  placeholder="Choose Course...">
-                        <flux:select.option value="">All Courses</flux:select.option>
-                        @foreach($courses as $course)
-                            <flux:select.option value="{{ $course->id }}">{{ $course->course_name }}</flux:select.option>
-                        @endforeach
-                    </flux:select>
-                    <div wire:loading wire:target="course">
-                        <span class="text-sm align-center text-gray-500 dark:text-gray-400">Loading...</span>
-                    </div>
-                </div>
-            </div>
+    <div class="mt-2 mb-2 flex">
+        <div style="width:325px; display:inline-block;">
+            <flux:select wire:model.live="course" id="courseFilter">
+                <flux:select.option value="">All Courses</flux:select.option>
+                @foreach ($courses as $course)
+                    <flux:select.option value="{{ $course->id }}">
+                        {{ $course->course_name }}
+                        @if ($course->quizzes_count > 0)
+                            ({{ $course->quizzes_count }} Quizzes)
+                        @else
+                            (No Quizzes)
+                        @endif
+                    </flux:select.option>
+                @endforeach
+            </flux:select>
 
-            {{-- Create Button & Modal Trigger --}}
-            <div class="mt-2 ml-2">
-                @can('assignment-create')
-                    <flux:modal.trigger name="create-module">
-                        <flux:button icon:trailing="plus">Create Module</flux:button>
-                    </flux:modal.trigger>
-                @endcan
+            @error('course') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            <div wire:loading wire:target="course">
+                <span class="text-sm align-center text-gray-500 dark:text-gray-400">Loading...</span>
             </div>
         </div>
+        @can('assignment-create')
+        <div class="ml-2">
+                <flux:modal.trigger name="create-quiz-modal">
+                    <flux:button icon:trailing="plus">Create Quiz</flux:button>
+                </flux:modal.trigger>
+        </div>
+        @endcan
     </div>
 
     {{-- Create Assignment Modal Definition --}}

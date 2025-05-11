@@ -7,9 +7,8 @@
             <flux:input as="button" placeholder="Search..." style="width:300px" icon="magnifying-glass"/>
             </flux:modal.trigger>
 
-            <flux:modal.trigger name="view-courses">
-                        <flux:button class="ml-2" icon:trailing="eye">View enrolled courses</flux:button>
-                    </flux:modal.trigger>
+            
+            <flux:button :href="route('current-enroll')" class="ml-2" icon:trailing="eye">View enrolled courses</flux:button>
         </div>
 
         <flux:modal name="course-passkey" class="md:w-130">

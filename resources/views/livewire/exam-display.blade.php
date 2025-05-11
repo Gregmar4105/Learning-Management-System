@@ -20,12 +20,13 @@
                 <span class="text-sm align-center text-gray-500 dark:text-gray-400">Loading...</span>
             </div>
         </div>
-
+        @can('assignment-create')
         <div class="ml-2">
                 <flux:modal.trigger name="create-exam-modal">
                     <flux:button icon:trailing="plus">Create Exam</flux:button>
                 </flux:modal.trigger>
         </div>
+        @endcan
     </div>
 
     <flux:modal x-ref="create-exam-modal" name="create-exam-modal" class="md:w-150">
@@ -133,7 +134,7 @@
         @if ($availableExams)
             @if (count($availableExams) > 0)
                 @foreach ($availableExams as $exam)
-                    <div class="w-full sm:w-4/5 lg:w-2/3 mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow-md flex justify-between items-center">
+                    <div class="w-full sm:w-4/5 lg:w-200  mx-auto p-4 bg-white border border-black rounded-lg shadow-md mb-4 flex  justify-between items-end">
                         <div class="w-4/5">
                             <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{{ $exam->title }}</h2>
                             <p class="text-gray-600 dark:text-gray-300 mb-2">

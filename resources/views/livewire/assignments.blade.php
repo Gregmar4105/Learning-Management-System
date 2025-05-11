@@ -4,8 +4,8 @@
     <div class="sticky top-14 z-10">
         <div class="flex">
             {{-- Course Filter Dropdown --}}
-            <div class="mt-2 mb-2">
-                <div style="width:250px; display:inline-block;">
+            <div class="mt-2 mb-2 flex">
+        <div style="width:325px; display:inline-block;">
                     <flux:select wire:model.live="course" id="courseFilter"  placeholder="Choose Course...">
                         <flux:select.option value="">All Courses</flux:select.option>
                         @foreach($courses as $course)
