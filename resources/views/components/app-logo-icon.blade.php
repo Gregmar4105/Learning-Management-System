@@ -1,0 +1,1 @@
+<img src="{{ asset('images/philsca-logo.png') }}" alt="Philsca Logo">
