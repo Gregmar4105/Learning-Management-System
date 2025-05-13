@@ -60,6 +60,8 @@ Route::view('take-exam', 'take-exam')
 Route::view('current-enroll', 'current-enroll')
     ->middleware(['auth', 'verified'])
     ->name('current-enroll');
+Route::view('about-us', 'about-us')
+    ->name('about-us');
 
 
 Route::middleware(['auth'])->group(function () {

@@ -45,6 +45,7 @@
                 <div>
                     <flux:label for="newAssignmentCourse" class="block text-sm font-medium text-gray-700 mb-1">Course</flux:label>
                     <flux:select wire:model="newAssignmentCourseId" id="newAssignmentCourse">
+                        <option value="">-- Select Course --</option>
                         @foreach($courses as $c)
                             <flux:select.option value="{{ $c->id }}">{{ $c->course_name }}</flux:select.option>
                         @endforeach
