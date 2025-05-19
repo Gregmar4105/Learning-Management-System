@@ -5,5 +5,5 @@
 </div>
 <div class="grid flex-1 text-start text-lg">
 
-    <flux:heading size="lg" level="1">{{ __('Learning Management') }}</flux:heading>
+    <flux:heading size="lg" level="1">{{ __('learning management') }}</flux:heading>
 </div>
