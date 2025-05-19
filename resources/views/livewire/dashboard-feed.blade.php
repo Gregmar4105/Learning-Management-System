@@ -117,7 +117,7 @@
                 <x-icon name="graduation-cap" class="w-4 h-4" />
             </button>
         @empty
-            <p class="text-gray-400 italic">No enrolled courses yet.</p>
+            <p class="text-gray-400">No enrolled courses yet.</p>
         @endforelse
     </div>
 

@@ -28,7 +28,7 @@
             </div>
             <div class="mt-2 ml-2">
                 @can('assignment-create')
-                    <flux:button :href="route('assignment-upload')" variant="primary" icon:trailing="eye">View student uploads</flux:button>
+                    <flux:button :href="route('assignment-upload')" variant="primary" icon:trailing="eye">View submissions</flux:button>
                 @endcan
             </div>
         </div>

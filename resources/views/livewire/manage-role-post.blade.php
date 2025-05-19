@@ -87,11 +87,29 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                     {{ $role->name }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                        @foreach ($role->permissions as $permission)
-                            <span class="text-xs text-gray-500 dark:text-gray-400">{{ $permission->name }}</span>
-                        @endforeach
-                    </td>
+                   
+
+<td class="px-6 py-4 text-sm font-medium text-gray-900">
+    @foreach ($role->permissions as $permission)
+        @php
+            $name = $permission->name;
+            $badgeColor = '';
+
+            if (str_contains($name, 'create')) {
+                $badgeColor = 'green';
+            } elseif (str_contains($name, 'edit')) {
+                $badgeColor = 'blue';
+            } elseif (str_contains($name, 'delete')) {
+                $badgeColor = 'red';
+            }
+        @endphp
+
+        <flux:badge color="{{ $badgeColor }}">
+            <span class="text-xs text-gray-500 dark:text-gray-400">{{ $name }}</span>
+        </flux:badge>
+    @endforeach
+</td>
+
                     <td>
                         @can('role-edit')
                         <flux:modal.trigger name="edit-user">

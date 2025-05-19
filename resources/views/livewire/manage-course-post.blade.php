@@ -87,16 +87,16 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                         {{ $course->id }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                    <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
                         {{ $course->course_name }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                        {{ $course->course_description }}
+                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-pre-line">
+                        {!! nl2br(e($course->course_description)) !!}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                         {{ $course->creator->name }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                    <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white" style="word-break: break-word; overflow-wrap: break-word;">
                         {{ $course->course_key }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">

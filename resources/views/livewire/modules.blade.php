@@ -8,11 +8,6 @@
                 @foreach ($courses as $course)
                     <flux:select.option value="{{ $course->id }}">
                         {{ $course->course_name }}
-                        @if ($course->quizzes_count > 0)
-                            ({{ $course->quizzes_count }} Quizzes)
-                        @else
-                            (No Quizzes)
-                        @endif
                     </flux:select.option>
                 @endforeach
             </flux:select>
@@ -25,7 +20,7 @@
         @can('assignment-create')
         <div class="ml-2">
                 <flux:modal.trigger name="create-quiz-modal">
-                    <flux:button icon:trailing="plus">Create Quiz</flux:button>
+                    <flux:button icon:trailing="plus">Create Module</flux:button>
                 </flux:modal.trigger>
         </div>
         @endcan

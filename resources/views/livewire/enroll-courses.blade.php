@@ -15,7 +15,7 @@
         <div class="space-y-6">
             <div>
                 <flux:heading  size="lg">{{ $course_name }}</flux:heading>
-                <flux:text class="mt-2" >{{ $description }}</flux:text>
+                <flux:text class="mt-2" >{!! nl2br(e($description)) !!}</flux:text>
             </div>
             <div>
             <flux:input label="Course key" wire:model="course_key" type="password" value="" viewable />
@@ -82,11 +82,11 @@
             <div class="w-full">
                 <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ $c->course_name}}</h2>
                 <p class="text-gray-600 dark:text-gray-300">
-                {{ $c->course_description }}
+                        {!! nl2br(e($c->course_description)) !!}
                 </p>
                 <div class="flex justify-between items-center mt-4 border-t border-gray-300">
                 <p class="text-sm text-gray-500 dark:text-gray-400 "> by: {{ $c->creator->name }}</p>
-                <flux:button size="sm" class="mt-2" wire:click="CourseKey({{ $c->id }})" variant="primary">Join</flux:button>
+                <flux:button size="sm" class="mt-2" icon:trailing="arrow-up-right" wire:click="CourseKey({{ $c->id }})" variant="primary">Join</flux:button>
                 </div>
             </div>
         </div>
